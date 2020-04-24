@@ -32,11 +32,11 @@ namespace B.O.O.T.Y
                 currentRoom = new FightRoom(); // Efter att spelaren  valt riktning sparas en ny subklass i variablen currentRoom, detta signalerar att man har bytt rum
               
                 
-              ThePirates.hp = currentRoom.Battle(ThePirates, Character);// Här kallas den subklassen som sparats i currentrooms Battle-metod, parametarna som åker in är av klassen characters
+              ThePirates.hp = currentRoom.Battle(ThePirates, Character);// Här kallas den subklassen som sparats i currentrooms Battle-metod, parametarna som åker in är av klassen character och thepirates
                 // det som returneras sparas sedan i the pirates hp som är en publik variabel
 
 
-                if (ThePirates.hp <= 0)
+                if (ThePirates.hp <= 0) // Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
                 {
 
                     Console.WriteLine("you ded, Try again another time, press enter to quit");
@@ -44,7 +44,7 @@ namespace B.O.O.T.Y
                     return;
                 }
 
-                Treasure = Treasure.CreateTreasure();// Här kallas klassens treasures metod för att bestämma om skatten som piraterna hittar förtrollad eller inte, detta sparas sedan i variabeln treasure som instaniserades innan
+                Treasure = Treasure.CreateTreasure();// Här kallas klassens treasures metod för att bestämma om skatten som spelaren hittar förtrollad eller inte, detta sparas sedan i variabeln treasure som instaniserades innan
                 Console.WriteLine("your team has found treasure! Do you pick it up? (Write either yes or no)");
                 input = Console.ReadLine();
                 input = InputManager.YesOrNo(input);
@@ -58,20 +58,20 @@ namespace B.O.O.T.Y
                 else
                 {
 
-                    Console.WriteLine("Okay, you leave it where you found it");
+                    Console.WriteLine("Okay, you leave it where you found it and instead countiune on to the next crossroad");
 
                 }
 
 
 
-                Console.WriteLine("forward or left?(Write either forward or left to choose)");
+                Console.WriteLine("Do you choose to go forward or left?(Write either forward or left to choose)");
                 input = Console.ReadLine();
                 input = InputManager.LeftForward(input);
 
                 if (input == "forward")
                 {
 
-                    //Play fight sequence
+                  
                     currentRoom = new FightRoom2(); // Efter att spelaren  valt riktning sparas en ny subklass i variablen currentRoom, detta signalerar att man har bytt rum
                   
 
@@ -79,7 +79,7 @@ namespace B.O.O.T.Y
                                                                               // det som returneras sparas sedan i the pirates hp som är en publik variabel
 
 
-                    if (ThePirates.hp <= 0)
+                    if (ThePirates.hp <= 0) // Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
                     {
 
                         Console.WriteLine("you ded, Try again another time, press enter to quit");
@@ -107,6 +107,8 @@ namespace B.O.O.T.Y
                     }
 
 
+
+
                     Console.WriteLine("Congrats you and your team survived the journey, Press enter to quit");
                     Console.ReadLine();
                     return;
@@ -120,6 +122,15 @@ namespace B.O.O.T.Y
 
                     ThePirates.hp = currentRoom.EnteringSeq2(ThePirates);// Här kallas den subklassen som sparats i currentrooms Enteringsequence-metod, parametarna som åker in är av klassen character
                                                                          // det som returneras sparas sedan i the pirates hp som är en publik variabel
+
+                    if (ThePirates.hp <= 0) // Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
+                    {
+
+                        Console.WriteLine("you ded, Try again another time, press enter to quit");
+                        Console.ReadLine();
+                        return;
+                    }
+
 
                     Treasure Treasure3 = Treasure.CreateTreasure();// här instaniseras en ny treasure där en ny treasure sparas som är en av de 2 tillgängliga subklasserna
                     Console.WriteLine("your team has found treasure! Do you pick it up? (Write yes or no)");
@@ -153,7 +164,16 @@ namespace B.O.O.T.Y
 
                 currentRoom = new PuzzleRoom(); // Efter att spelaren  valt riktning sparas en ny subklass i variablen currentRoom, detta signalerar att man har bytt rum
                 ThePirates.hp = currentRoom.EnteringSeq1(ThePirates);// Här kallas den subklassen som sparats i currentrooms Enteringsequence-metod, parametarna som åker in är av klassen character
-                // det som returneras sparas sedan i the pirates hp som är en publik variabel
+                                                                     // det som returneras sparas sedan i the pirates hp som är en publik variabel
+
+                if (ThePirates.hp <= 0) // Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
+                {
+
+                    Console.WriteLine("you ded, Try again another time, press enter to quit");
+                    Console.ReadLine();
+                    return;
+                }
+
 
                 Treasure Treasure4 = Treasure.CreateTreasure();// här instaniseras en ny treasure där en ny treasure sparas som är en av de 2 tillgängliga subklasserna
                 Console.WriteLine("your team has found treasure! Do you pick it up? (Write yes or no)");
@@ -188,6 +208,14 @@ namespace B.O.O.T.Y
                     ThePirates.hp = currentRoom.EnteringSeq2(ThePirates);// Här kallas den subklassen som sparats i currentrooms Enteringsequence-metod, parametarna som åker in är av klassen character
                                                                          // det som returneras sparas sedan i the pirates hp som är en publik variabel
 
+                    if (ThePirates.hp <= 0) // Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
+                    {
+
+                        Console.WriteLine("you ded, Try again another time, press enter to quit");
+                        Console.ReadLine();
+                        return;
+                    }
+
                     Treasure Treasure5 = Treasure.CreateTreasure();// här instaniseras en ny treasure där en ny treasure sparas som är en av de 2 tillgängliga subklasserna
                     Console.WriteLine("your team has found treasure! Do you pick it up? (Write yes or no)");
                     input = Console.ReadLine();
@@ -217,14 +245,13 @@ namespace B.O.O.T.Y
 
                     //Play fight sequence
                     currentRoom = new FightRoom2();// Efter att spelaren  valt riktning sparas en ny subklass i variablen currentRoom, detta signalerar att man har bytt rum
-                    currentRoom = new FightRoom(); // Efter att spelaren  valt riktning sparas en ny subklass i variablen currentRoom, detta signalerar att man har bytt rum
-
-
+                   
+                    
                     ThePirates.hp = currentRoom.Battle(ThePirates, Character);// Här kallas den subklassen som sparats i currentrooms Battle-metod, parametarna som åker in är av klassen characters
                                                                               // det som returneras sparas sedan i the pirates hp som är en publik variabel
 
 
-                    if (ThePirates.hp <= 0)
+                    if (ThePirates.hp <= 0)// Är spelarens hp under 0 kommer spelet automatiskt avslutas och spelaren får spela om spelet
                     {
 
                         Console.WriteLine("you ded, Try again another time, press enter to quit");

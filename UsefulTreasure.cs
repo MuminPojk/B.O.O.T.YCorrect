@@ -13,7 +13,7 @@ namespace B.O.O.T.Y
         {
 
             Random generator = new Random();
-            value = generator.Next(10,100);
+            value = generator.Next(10,100); //Pluspoäng
            
 
         }

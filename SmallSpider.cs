@@ -10,7 +10,8 @@ namespace B.O.O.T.Y
     {
 
 
-        public SmallSpider(){
+        public SmallSpider()
+        {//OBS se klassen character för mer djupgående förklaringar
 
 
             hp = hp- 6;

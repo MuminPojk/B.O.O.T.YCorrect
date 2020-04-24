@@ -9,10 +9,11 @@ namespace B.O.O.T.Y
     class Spider : Enemy
     {
 
-        public Spider(){
+        public Spider()
+        {//OBS se klassen character för mer djupgående förklaringar
 
 
-            
+
             charm = generator.Next(1,7);
             dex = generator.Next(8,14);
             strength = generator.Next(8,14);

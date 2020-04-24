@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B.O.O.T.Y
 {
-    class BigSpider: Spider
+    class BigSpider: Spider//OBS se klassen character för mer djupgående förklaringar
     {
 
         public BigSpider()

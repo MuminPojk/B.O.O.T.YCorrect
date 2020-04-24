@@ -11,11 +11,11 @@ namespace B.O.O.T.Y
 
         Random generator = new Random();
 
-        public HashSet<string> playersAnswer = new HashSet<string>();
-        private string[] correctAnswers = { "milk", "nothing", "ribs", "kalcium", "people", "bonuts" };
+        public HashSet<string> playersAnswer = new HashSet<string>(); //Kommer spara alla svar som spelaren skriver in. Kommer däremot endast spara de unika svaren som spelaren skriver in i EnteringSeq1
+        private string[] correctAnswers = { "milk", "nothing", "ribs", "kalcium", "people", "bonuts" }; // en array med de rätta svaren för EnteringSeq1
 
-        public HashSet<string> playersAnswer2 = new HashSet<string>();
-        private string[] correctAnswers2 = { "trombone", "nothing", "ear drum", "xylobone", "saxobone", "bone harp" };
+        public HashSet<string> playersAnswer2 = new HashSet<string>(); //Kommer spara alla svar som spelaren skriver in. Kommer däremot endast spara de unika svaren som spelaren skriver in i EnteringSeq1
+        private string[] correctAnswers2 = { "trombone", "nothing", "ear drum", "xylobone", "saxobone", "bone harp" }; // en array med de rätta svaren för EnteringSeq2
 
 
         InputManager InputManager = new InputManager();
@@ -26,6 +26,8 @@ namespace B.O.O.T.Y
         
        
         //kommer slumpa fram vilken fiende som man möter när man går in i ett fightroom
+        //Fienderna kommer läggas in i en lista som sedan slumpar fram ett tal beroende på hur lång listan är med fiender. 
+        //Beroende på vilket tal som slumpas fram kommer en enemy i listan att retuneras.
         public virtual Enemy EnterRoom()
         {
 
@@ -78,6 +80,7 @@ namespace B.O.O.T.Y
         }
 
         //Denna metod har hand om hela fighten när spelaren går in i ett fightroom, parametrarna som tas in är spelaren och den fienden som slumpades fram i EnterRoom
+        //Denna metod innehåller 9 olika scenarion som beror på vad fienden slumpar fram för val och vad spelaren själv väljer
         public virtual int Battle(ThePirates player, Character foe)
         {
 
@@ -89,7 +92,7 @@ namespace B.O.O.T.Y
             //Det finns nio olika senarion som kan hända beroende på spelaren och fiendens val
             //fiendes val kommer att slumpas fram varje omgång 
 
-            foe = EnterRoom(); // Det som retunardes från EnterRoom vilket var en enemy, kommer sparas i character foe 
+            foe = EnterRoom(); // Det som retunardes från EnterRoom vilket var en enemy, kommer sparas i character foe. Det är den karaktären som spelaren kommer slåss mot
 
             while (player.hp > 0 && foe.hp > 0)// Denna loop kommer köras så länge som båda kämparnas hp är över 0
             {
@@ -108,7 +111,7 @@ namespace B.O.O.T.Y
 
 
 
-                if (input == "1" && randomNumber == 0)// if player attack and foe attack
+                if (input == "1" && randomNumber == 0)// if player attack and foe attack, Både spelaren och fienden kommer ta skada 
                 {
 
                     Console.WriteLine("You attacked and your foe attacked");
@@ -126,7 +129,8 @@ namespace B.O.O.T.Y
                     Console.WriteLine("your hp is at " + player.hp);
 
                 }
-                else if (input == "1" && randomNumber == 1) //  if player attack and foe dodge
+                else if (input == "1" && randomNumber == 1) //  if player attack and foe dodge 
+                    // Om spelaren lyckas få en högre accuracy än fiendens dodge kommer spelaren skada fienden, annars kommer fienden komma undan och ingen tar skada
                 {
 
                     Console.WriteLine("You attacked and your foe dodged");
@@ -135,7 +139,7 @@ namespace B.O.O.T.Y
 
                     int foeDodge = foe.Dodge();
 
-                    if (playerAccuracy > foeDodge)
+                    if (playerAccuracy >= foeDodge)
                     {
 
                         int playerAttack = player.Attack();
@@ -152,10 +156,11 @@ namespace B.O.O.T.Y
                         Console.WriteLine("The foe manage to dodge");
 
                     }
+                  
 
 
                 }
-                else if (input == "1" && randomNumber == 2)// if player attack and foe charm
+                else if (input == "1" && randomNumber == 2)// if player attack and foe charm // spelarens accuracy måste vara högre än fiendens charm. Är den det kommer fienden ta skada annars tar spelaren skada
                 {
 
                     Console.WriteLine("You attacked and your foe tried to charm you");
@@ -175,18 +180,19 @@ namespace B.O.O.T.Y
                         Console.WriteLine("You did " + playerAttack + " points of damage");
 
                     }
-                    else if (foeCharm > playerAccuracy)
+                    else if (foeCharm >= playerAccuracy)
                     {
 
                         player.hp = player.hp - 8;
-                        Console.WriteLine("The foe did not manage to charm you");
+                        Console.WriteLine("The foe did manage to charm you");
                         Console.WriteLine("you took 8 damage");
 
                     }
 
 
                 }
-                else if (input == "2" && randomNumber == 0) //if player dodge and foe attack
+                else if (input == "2" && randomNumber == 0) //if player dodge and foe attack 
+                    // Om spelaren lyckas få en högre dex score än fiendens accuracy kommer spelaren undan och ingen tar skada, annars träffar fienden spelaren och den tar skada
                 {
 
                     Console.WriteLine("You dodged and your foe tried to attack you");
@@ -195,7 +201,7 @@ namespace B.O.O.T.Y
 
                     int playerDodge = player.Dodge();
 
-                    if (foeAccuracy > playerDodge)
+                    if (foeAccuracy >= playerDodge)
                     {
 
                         int foeAttack = foe.Attack();
@@ -214,7 +220,7 @@ namespace B.O.O.T.Y
                     }
 
                 }
-                else if (input == "2" && randomNumber == 1) //if player dodge and foe dodge
+                else if (input == "2" && randomNumber == 1) //if player dodge and foe dodge // Båda tar skydd och ingen tar skada eller får konsekvenser
                 {
 
                     Console.WriteLine("You both tried to dodge");
@@ -223,6 +229,7 @@ namespace B.O.O.T.Y
 
                 }
                 else if (input == "2" && randomNumber == 2)// if player dodge and foe charm
+                    // spelarens dex score måste vara högre än fiendens charm. Är den det kommer spelaren undan och ingen tar skada om fiendens charm är högre än spelarens dex kommer spelaren ta skada
                 {
 
                     Console.WriteLine("You dodged and your foe tried to charm you");
@@ -230,7 +237,7 @@ namespace B.O.O.T.Y
                     int playerDodge = player.Dodge();
                     int foeCharm = foe.Charm();
 
-                    if (playerDodge > foeCharm)
+                    if (playerDodge >= foeCharm)
                     {
 
                         Console.WriteLine("You managed to dodge the attack");
@@ -249,7 +256,7 @@ namespace B.O.O.T.Y
 
                 }
 
-                else if (input == "3" && randomNumber == 0) //if player charm and foe attack
+                else if (input == "3" && randomNumber == 0) //if player charm and foe attack// spelarens charm score måste vara högre än fiendens accuracy. Är den det kommer fienden ta skada annars tar spelaren skada
                 {
 
                     Console.WriteLine("You tried to charm and your foe tried to attack you");
@@ -271,7 +278,7 @@ namespace B.O.O.T.Y
                         Console.WriteLine("your hp is at " + player.hp);
 
                     }
-                    else if (playerCharm > foeAccuracy)
+                    else if (playerCharm >= foeAccuracy)
                     {
 
                         foe.hp = foe.hp - 8;
@@ -285,14 +292,14 @@ namespace B.O.O.T.Y
 
                 }
                 else if (input == "3" && randomNumber == 1) //if player charm and foe dodge
-                {
+                {// spelarens charm score måste vara högre än fiendens dex. Är den det kommer fienden ta skada, däremot om fiendens dex score är högre än spelarens charm tar ingen skada
 
                     Console.WriteLine("You tried to charm and your foe tried to dodge");
 
                     int foeDodge = foe.Dodge();
                     int playerCharm = player.Charm();
 
-                    if (foeDodge > playerCharm)
+                    if (foeDodge >= playerCharm)
                     {
 
                         Console.WriteLine("The foe managed to dodge");
@@ -310,7 +317,7 @@ namespace B.O.O.T.Y
 
 
                 }
-                else if (input == "3" && randomNumber == 2)// if player charm and foe charm
+                else if (input == "3" && randomNumber == 2)// if player charm and foe charm // Om fiendens charm är högst tar spelaren skada men om spelarens charm är högst tar fienden skada
                 {
 
                     Console.WriteLine("You and your foe tried to charm each other");
@@ -346,21 +353,21 @@ namespace B.O.O.T.Y
             }
 
 
-            if (player.hp > 0 && foe.hp < 0)
+            if (player.hp > 0 && foe.hp < 0) //Kommer retunera spelarens hp om spelaren lever
             {
 
                 Console.WriteLine("Hurray you do not die");
                 return player.hp;
 
             }
-            else if (player.hp < 0 && foe.hp > 0)
+            else if (player.hp < 0 && foe.hp > 0)//Kommer retunera spelarens hp om fienden lever
             {
 
                 Console.WriteLine("oh no you died");
                 return player.hp;
 
             }
-            else if (player.hp< 0 && foe.hp < 0)
+            else if (player.hp< 0 && foe.hp < 0)//Kommer retunera spelarens hp om spelaren oc fienden är döda
             {
 
                 Console.WriteLine("oh no you died, but so is your foe");
@@ -373,6 +380,8 @@ namespace B.O.O.T.Y
 
         }
 
+        //Denna metod håller allt som händer i puzzelroom. Man kommer in i rummet och måste svara rätt på en fråga, svara spelaren fel kommer den att ta skada samt att dess svar längs in i en hashset som man kan få utskriven
+        // Så länge spelarens svar inte är en av de som finns i correctAnswer arrayen kommer den behöva skriva om sitt svar tills den matchar en plats i arrayen eller tills spelarens hp når 0. då retuneras spelarens hp
         public virtual int EnteringSeq1(ThePirates player)
         {
 
@@ -392,7 +401,9 @@ namespace B.O.O.T.Y
                 Console.WriteLine("Wrong answer take some damage, try again");
                 player.hp = player.hp - 10;
 
-                Console.WriteLine("Want to see your previous answers?");
+                Console.WriteLine("Your hp is at " + player.hp);
+
+                Console.WriteLine("Want to see your previous answers? (write yes or no)");
                  input = Console.ReadLine();
 
                 if (input == "yes")
@@ -408,14 +419,19 @@ namespace B.O.O.T.Y
                 }
                 else if (input == "no")
                 {
-
+                    Console.WriteLine("Okay write your next answer and press enter to countinue");
                     input = Console.ReadLine();
 
                 }
-                
+
+                if (player.hp <= 0) //När spelarens hp är vid 0 kommer dens värde att retuneras
+                {
+                    return player.hp;
+
+                }
 
             }
-
+            
 
             if (input == correctAnswers[0] || input == correctAnswers[1] || input == correctAnswers[2] || input == correctAnswers[3] || input == correctAnswers[4] || input == correctAnswers[5])
             {
@@ -423,7 +439,7 @@ namespace B.O.O.T.Y
 
                 Console.WriteLine("Congrats, you answered correctly");
                 Console.WriteLine("You can now exit, your welcome");
-               
+                return player.hp;
 
             }
             
@@ -431,6 +447,8 @@ namespace B.O.O.T.Y
 
         }
 
+        // Gör om hashseten med spelarens svar till en array som sedan skrivs ut
+        //Syftet med denna metod är att vissa spelaren vad den har svarat tidigare i fall den glömmer bort eller behöver ha insperation till nya svar
         public virtual void ShowAnswers()
         {
 
@@ -446,6 +464,8 @@ namespace B.O.O.T.Y
 
 
         }
+
+        //Se EnteringSeq1 för närmare förklaring
         public virtual int EnteringSeq2(ThePirates player)
         {
 
@@ -464,6 +484,8 @@ namespace B.O.O.T.Y
 
                 Console.WriteLine("Wrong answer take some damage, try again");
                 player.hp = player.hp - 10;
+
+                Console.WriteLine("Your hp is at " + player.hp);
 
                 Console.WriteLine("Want to see your previous answers?");
                 input = Console.ReadLine();
@@ -486,6 +508,12 @@ namespace B.O.O.T.Y
 
                 }
 
+                if (player.hp <= 0)//När spelarens hp är vid 0 kommer dens värde att retuneras
+                {
+                    return player.hp;
+
+                }
+
 
             }
 
@@ -504,6 +532,7 @@ namespace B.O.O.T.Y
 
         }
 
+        //Se ShowAnswers för närmare förklaring
         public virtual void ShowAnswers2()
         {
 

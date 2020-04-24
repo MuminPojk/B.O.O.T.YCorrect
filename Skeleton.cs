@@ -9,7 +9,7 @@ namespace B.O.O.T.Y
     class Skeleton: Enemy
     {
 
-        public Skeleton()
+        public Skeleton()//OBS se klassen character för mer djupgående förklaringar
         {
 
             

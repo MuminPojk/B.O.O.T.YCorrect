@@ -10,7 +10,9 @@ namespace B.O.O.T.Y
     {
 
 
+        //Alla metoder här under kollar om spelaren har skrivit in en av de accepterade svaren
 
+        //Först ser metoden till att spelraens svar är i gemener. Är spelarens svar inte ja eller nej kommer loopen köras om tills spelaren skriver ett acceptabelt svar
         public string YesOrNo(string input){
 
 
@@ -47,6 +49,8 @@ namespace B.O.O.T.Y
             return input;
 
         }
+
+        // Är spelarens svar inte 1,2 eller 3 kommer loopen köras om tills spelaren skriver ett acceptabelt svar
         public string NumberChose(string input)
         {
 
@@ -87,6 +91,8 @@ namespace B.O.O.T.Y
 
 
         }
+
+        //Först ser metoden till att spelarens svar är i gemener Är spelarens svar inte left eller right kommer loopen köras om tills spelaren skriver ett acceptabelt svar
         public string LeftRight(string input)
         {
             
@@ -124,6 +130,8 @@ namespace B.O.O.T.Y
 
 
         }
+
+        //Först ser metoden till att spelarens svar är i gemener Är spelarens svar inte left eller forward kommer loopen köras om tills spelaren skriver ett acceptabelt svar
         public string LeftForward(string input)
         {
 
@@ -162,6 +170,8 @@ namespace B.O.O.T.Y
 
 
         }
+
+        //Först ser metoden till att spelarens svar är i gemener Är spelarens svar inte forward eller right kommer loopen köras om tills spelaren skriver ett acceptabelt svar
         public string RightForward(string input)
         {
 

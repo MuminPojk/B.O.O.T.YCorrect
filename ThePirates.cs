@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace B.O.O.T.Y
 {
-    class ThePirates: Character
+    class ThePirates: Character//OBS se klassen character för mer djupgående förklaringar
     {
-        public Stack<Treasure> inventory = new Stack<Treasure>();
+        public Stack<Treasure> inventory = new Stack<Treasure>(); // Är en en stack som har hand om allt som spelaren plockade upp under spelets gång
 
         public ThePirates()
         {
@@ -24,7 +24,8 @@ namespace B.O.O.T.Y
 
         }
 
-        //Kommer ta in den skatt som spelaren hittade och lägga in den i dess inventory
+        //Kommer ta in den skatt som spelaren hittade och lägga in den i dess inventory. Sedan retuneras stacken.
+        //Denna metods syfte är att placera de saker som spelaren hittar på ett säkert ställe så att spelaren vid ett senare tillfälle kan använda föremålen
         public Stack<Treasure> AddToInventory(Treasure treasure)
         {
 

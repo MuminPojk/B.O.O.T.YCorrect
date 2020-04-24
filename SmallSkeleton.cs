@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B.O.O.T.Y
 {
-    class SmallSkeleton: Skeleton
+    class SmallSkeleton: Skeleton//OBS se klassen character för mer djupgående förklaringar
     {
 
 

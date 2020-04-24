@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B.O.O.T.Y
 {
-    class Enemy : Character
+    class Enemy : Character//OBS se klassen character för mer djupgående förklaringar
     {
 
         public Enemy()
