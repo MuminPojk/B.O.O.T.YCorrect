@@ -9,7 +9,7 @@ namespace B.O.O.T.Y
     class StartRoom: Room
     {
 
-        public StartRoom()
+        public StartRoom() // Är en konstruktor som skapas varje gång klassen instansieras
         {
 
 

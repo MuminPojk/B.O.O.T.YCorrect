@@ -16,14 +16,14 @@ namespace B.O.O.T.Y
         public string YesOrNo(string input){
 
 
-            input = input.ToLower();
+            input = input.ToLower(); // Gör så att spelarens bokstäver alla blir gemener oberoende på hur de skriver
 
 
-            while (input != "yes" && input != "no")
+            while (input != "yes" && input != "no") // Loopen kommer köras om tills så länge spelaren skriver något som inte är lika med "yes " eller "no"
             {
 
 
-                if (input != "yes" && input != "no")
+                if (input != "yes" && input != "no")// kommer köras om tills så länge spelaren skriver något som inte är lika med "yes " eller "no"
                 {
 
                     Console.WriteLine("Your answer is invalid, try to write either yes or no, nothing else");
@@ -32,14 +32,14 @@ namespace B.O.O.T.Y
                 }
 
 
-                input = Console.ReadLine();
+                input = Console.ReadLine();// Spelaren kommer få skriva om tills de skrivit ett acceptabelt svar
                 input = input.ToLower();
 
             }
 
 
 
-            if (input == "yes" || input == "no")
+            if (input == "yes" || input == "no")// Om spelaren   "yes " eller "no" kommer deras input att retuneras
             {
 
                 return input;
@@ -57,11 +57,11 @@ namespace B.O.O.T.Y
          
 
 
-            while (input != "1" && input != "2" && input != "3")
+            while (input != "1" && input != "2" && input != "3")// Loopen kommer köras om tills så länge spelaren skriver något som inte är lika med 1,2 eller 3
             {
 
 
-                if (input != "1" && input != "2" && input != "3")
+                if (input != "1" && input != "2" && input != "3")// kommer köras om tills så länge spelaren skriver något som inte är lika med 1,2 eller 3
                 {
 
                     Console.WriteLine("Your answer is invalid, try to write either 1, 2 or 3 with numbers");
@@ -70,14 +70,14 @@ namespace B.O.O.T.Y
                 }
 
 
-                input = Console.ReadLine();
-                
+                input = Console.ReadLine();// Spelaren kommer få skriva om tills de skrivit ett acceptabelt svar
+
 
             }
 
 
 
-            if (input == "1" || input == "2" || input == "3")
+            if (input == "1" || input == "2" || input == "3")// Om spelaren 1,2 eller 3 kommer deras input att retuneras
             {
 
                 return input;
@@ -96,14 +96,14 @@ namespace B.O.O.T.Y
         public string LeftRight(string input)
         {
             
-            input = input.ToLower();
+            input = input.ToLower();// Gör så att spelarens bokstäver alla blir gemener oberoende på hur de skriver
 
 
-            while (input != "left" && input != "right")
+            while (input != "left" && input != "right")// Loopen kommer köras om tills så länge spelaren skriver något som inte är lika med "left " eller "right"
             {
 
 
-                if (input != "left" && input != "right")
+                if (input != "left" && input != "right")// kommer köras om tills så länge spelaren skriver något som inte är lika med "left " eller "rigt"
                 {
 
                     Console.WriteLine("Your answer is invalid, try to write either left or right, nothing else");
@@ -112,14 +112,14 @@ namespace B.O.O.T.Y
                 }
 
 
-                input = Console.ReadLine();
+                input = Console.ReadLine();// Spelaren kommer få skriva om tills de skrivit ett acceptabelt svar
                 input = input.ToLower();
 
             }
 
 
 
-            if (input == "left" || input == "right")
+            if (input == "left" || input == "right")// Om spelaren   "left " eller "right" kommer deras input att retuneras
             {
 
                 return input;
@@ -135,14 +135,14 @@ namespace B.O.O.T.Y
         public string LeftForward(string input)
         {
 
-            input = input.ToLower();
+            input = input.ToLower();// Gör så att spelarens bokstäver alla blir gemener oberoende på hur de skriver
 
 
-            while (input != "left" && input != "forward")
+            while (input != "left" && input != "forward")// Loopen kommer köras om tills så länge spelaren skriver något som inte är lika med "left " eller "right"
             {
 
 
-                if (input != "left" && input != "forward")
+                if (input != "left" && input != "forward")// kommer köras om tills så länge spelaren skriver något som inte är lika med "left " eller "forward"
                 {
 
                     Console.WriteLine("Your answer is invalid, try to write either left or forward, nothing else");
@@ -151,14 +151,14 @@ namespace B.O.O.T.Y
                 }
 
 
-                input = Console.ReadLine();
+                input = Console.ReadLine();// Spelaren kommer få skriva om tills de skrivit ett acceptabelt svar
                 input = input.ToLower();
 
             }
 
 
 
-            if (input == "left" || input == "forward")
+            if (input == "left" || input == "forward")// Om spelaren   "left " eller "forward" kommer deras input att retuneras
             {
 
                 return input;
@@ -175,14 +175,14 @@ namespace B.O.O.T.Y
         public string RightForward(string input)
         {
 
-            input = input.ToLower();
+            input = input.ToLower();// Gör så att spelarens bokstäver alla blir gemener oberoende på hur de skriver
 
 
-            while (input != "forward" && input != "right")
+            while (input != "forward" && input != "right")// Loopen kommer köras om tills så länge spelaren skriver något som inte är lika med "left " eller "right"
             {
 
 
-                if (input != "forward" && input != "right")
+                if (input != "forward" && input != "right")// kommer köras om tills så länge spelaren skriver något som inte är lika med "forward " eller "right"
                 {
 
                     Console.WriteLine("Your answer is invalid, try to write either forward or right, nothing else");
@@ -191,14 +191,14 @@ namespace B.O.O.T.Y
                 }
 
 
-                input = Console.ReadLine();
+                input = Console.ReadLine();// Spelaren kommer få skriva om tills de skrivit ett acceptabelt svar
                 input = input.ToLower();
 
             }
 
 
 
-            if (input == "forward" || input == "right")
+            if (input == "forward" || input == "right")// Om spelaren   "forward " eller "right" kommer deras input att retuneras
             {
 
                 return input;

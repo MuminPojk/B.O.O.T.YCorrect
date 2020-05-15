@@ -10,8 +10,6 @@ namespace B.O.O.T.Y
     {
 
     
-        
-
 
         public Random generator = new Random();
         public int hp;
@@ -27,9 +25,9 @@ namespace B.O.O.T.Y
         public virtual int Attack()
         {
             
-            int attackDamage = generator.Next(1, 10);
+            int attackDamage = generator.Next(1, 10); // Här slumpas ett tal fram som ska reprenstera en modifier för attackerna
 
-            attackDamage = attackDamage + strength;
+            attackDamage = attackDamage + strength;// här läggs karaktärens korrensponderade strength ihop med attackdamage som sedan retuneras
 
             return attackDamage;
 
@@ -42,9 +40,9 @@ namespace B.O.O.T.Y
         public virtual int Dodge()
         {
 
-            int dexStat = generator.Next(1, 10);
+            int dexStat = generator.Next(1, 10);// Här slumpas ett tal fram som ska reprenstera en modifier för dodge
 
-            dexStat = dexStat + dex;
+            dexStat = dexStat + dex;// här läggs karaktärens korrensponderade dex ihop med dexstats som sedan retuneras
 
             return dexStat;
 
@@ -56,9 +54,9 @@ namespace B.O.O.T.Y
         public virtual int Charm()
         {
 
-            int charmingStat = generator.Next(1, 10);
+            int charmingStat = generator.Next(1, 10);// Här slumpas ett tal fram som ska reprenstera en modifier för carm
 
-            charmingStat = charmingStat + charm;
+            charmingStat = charmingStat + charm;// här läggs karaktärens korrensponderade charm ihop med charmingstats som sedan retuneras
 
             return charmingStat;
 
@@ -69,9 +67,9 @@ namespace B.O.O.T.Y
         public virtual int HittingTarget()
         {
 
-            int accuracyStat = generator.Next(1, 10);
+            int accuracyStat = generator.Next(1, 10);// Här slumpas ett tal fram som ska reprenstera en modifier för attackerna
 
-            accuracyStat = accuracyStat + accuracy;
+            accuracyStat = accuracyStat + accuracy;// här läggs karaktärens korrensponderade accuracy ihop med accuracystats som sedan retuneras
 
             return accuracyStat;
 
@@ -83,7 +81,7 @@ namespace B.O.O.T.Y
         public virtual int GetDamaged(int amount)
         {
 
-            hp = hp - amount;
+            hp = hp - amount;// Här tas damaged son karaktären får att tas bort från karaktärens hp och som sedan retuneras
 
             return hp;
 

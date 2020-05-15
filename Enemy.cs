@@ -9,7 +9,7 @@ namespace B.O.O.T.Y
     class Enemy : Character//OBS se klassen character för mer djupgående förklaringar
     {
 
-        public Enemy()
+        public Enemy() // Denna konstrukor startas så fort som klassen instansieras, denna konstruktor slumpar mellan 50 och 90 som kommer bli alla subklassers hp, dena variable kommer senare ändras inom subklasserna
         {
 
 
@@ -18,6 +18,8 @@ namespace B.O.O.T.Y
         
 
         }
+
+        //För tydligare instruktioner för dessa metoder se klassen Character, alla metoder använder sig av basklassens version av metoden
         public override int Attack()
         {
 

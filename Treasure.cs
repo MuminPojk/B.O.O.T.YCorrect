@@ -18,16 +18,16 @@ namespace B.O.O.T.Y
         {
 
             
-            int randomNumber = generator.Next(1,100);
+            int randomNumber = generator.Next(1,100);// En siffra mellan 1 till 100 slumpas fram
 
-            if (randomNumber >= 40)
+            if (randomNumber >= 40) // Om det slumpade talet är över 40 kommer en instans av useful treasure att skapas och retuneras
             {
 
                 UsefulTreasure nonCursed = new UsefulTreasure();
                 return nonCursed;
 
             }
-            else if (randomNumber <= 40)
+            else if (randomNumber <= 40)// Om det slumpade talet är under 40 kommer en instans av cursed treasure att skapas och retuneras
             {
 
                 CursedTreasure Curesd = new CursedTreasure();

@@ -10,10 +10,12 @@ namespace B.O.O.T.Y
     {
         public Stack<Treasure> inventory = new Stack<Treasure>(); // Är en en stack som har hand om allt som spelaren plockade upp under spelets gång
 
-        public ThePirates()
+        public ThePirates()//Detta är en konstruktor som skapas så fort klassen inistineras
         {
+            // Alla dessa ärvs från klassen character, de tar alltså den variabeln som är deklarerad i klassen Character och tar det värdet som är sparat i den variablen minus/plus ett annat tal som i detta fall är 10,2 eller 1
+            //Detta sparas sedan i samma variabel som ärvts från basklassen och byter ut det värdet som orginellt fanns i variabeln
 
-            
+
 
             hp = 77;
 
@@ -35,8 +37,8 @@ namespace B.O.O.T.Y
 
 
         }
-        
 
+        //För tydligare instruktioner för dessa metoder se klassen Character, alla metoder använder sig av basklassens version av metoden
         public override int Attack()
         {
 

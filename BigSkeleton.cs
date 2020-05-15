@@ -11,8 +11,13 @@ namespace B.O.O.T.Y
 
 
 
-        public BigSkeleton()
+        public BigSkeleton() //Detta är en konstruktor som skapas så fort klassen inistineras
         {
+
+            // Alla dessa ärvs från klassen character, de tar alltså den variabeln som är deklarerad i klassen Character och tar det värdet som är sparat i den variablen minus/plus ett annat tal som i detta fall är 5,2 eller 1
+            //Detta sparas sedan i samma variabel som ärvts från basklassen och byter ut det värdet som orginellt fanns i variabeln
+            
+
 
             hp = hp + 5;
             charm = charm + 2;
@@ -21,9 +26,9 @@ namespace B.O.O.T.Y
             accuracy = accuracy + 1;
 
 
-
-
         }
+
+        //För tydligare instruktioner för dessa metoder se klassen Character, alla metoder använder sig av basklassens version av metoden
         public override int Attack()
         {
 
